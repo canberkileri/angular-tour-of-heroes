@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -24,7 +24,7 @@ export class HeroDetailComponent implements OnInit {
   }
   
   getHero(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = Number(this.route.snapshot.paramMap.get('id')!);
     this.heroService.getHero(id)
       .subscribe(hero => this.hero = hero);
   }
